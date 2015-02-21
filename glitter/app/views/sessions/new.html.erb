@@ -1,5 +1,5 @@
 <%= render 'shared/header', header: "Login" %>
-
+<div>
 <%= form_tag '/login', method: 'post' do %>
 	<%= label_tag :username %>
 	<%= text_field_tag :username, params[:username] %>
@@ -9,3 +9,4 @@
 	<br/>
 	<%= submit_tag "login" %>
 <% end %>
+</div>
