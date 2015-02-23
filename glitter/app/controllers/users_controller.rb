@@ -50,7 +50,6 @@ class UsersController < ApplicationController
 	end
 
 	def timeline
-	
 		@statuses = []
 		current_user.following_users.each do |user|
 			@statuses << user.statuses.all
@@ -59,8 +58,7 @@ class UsersController < ApplicationController
 	end
 
 	def mentions
-
-
+		current_user.mark_unread_mentions!
 	end
 
 
@@ -68,7 +66,6 @@ class UsersController < ApplicationController
 
 	def user_params
 		params.require(:user).permit!
-
 	end
 
 
