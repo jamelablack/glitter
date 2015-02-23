@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :require_user, only: [:follow, :unfollow]
+	before_action :require_user, only: [:follow, :unfollow, :mentions]
 
 	def index
 		@users = User.all
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(user_params)
+		@user = User.new(user_params).downcase
 
 		if @user.save
 			flash[:notice] = "You're now registered!"
@@ -50,11 +50,17 @@ class UsersController < ApplicationController
 	end
 
 	def timeline
+	
 		@statuses = []
 		current_user.following_users.each do |user|
 			@statuses << user.statuses.all
 		end
 		@statuses.flatten!
+	end
+
+	def mentions
+
+
 	end
 
 

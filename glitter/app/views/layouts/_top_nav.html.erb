@@ -1,12 +1,11 @@
 <%= link_to "Home", root_path %> |
 
 <% if logged_in? %>
-	Welcome, <%= current_user.username %>! |
+	Welcome, <%= current_user.username.capitalize %>! |
+	<%= link_to "My Mentions", mentions_path %> |
 	<%= link_to 'My Timeline', timeline_path %> |
-	<%= link_to "Log out", logout_path %> |
-
-	<%=link_to "New Status", new_status_path %> 
-	
+	<%=link_to "New Status", new_status_path %> |
+	<%= link_to "Log out", logout_path %>
 <% else %>
 
 	<%=link_to "Register", new_user_path %> |

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_secure_password
 	has_many :statuses
+	has_many :mentions
 
 	#must specify associations within the join model b/c you're working on both side of the model(User)
 	has_many :follower_relationships, class_name: "Relationship", foreign_key: "leader_id"

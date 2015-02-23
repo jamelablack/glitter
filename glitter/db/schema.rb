@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221182345) do
+ActiveRecord::Schema.define(version: 20150222174818) do
+
+  create_table "mentions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "status_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "relationships", force: true do |t|
     t.integer  "leader_id"
