@@ -17,6 +17,11 @@ class StatusesController < ApplicationController
 		else
 			render :new
 		end
+
+
+		def index
+			@statuses = Status.all
+		end
 	end
 
 private
