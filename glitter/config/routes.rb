@@ -16,7 +16,14 @@ Rails.application.routes.draw do
   		post 'unfollow'
   	end
   end
-  resources :statuses, only: [:new, :create, :index]
+  resources :statuses, only: [:new, :create, :index, :show] do
+    member do
+      post 'retweet'
+    end
+  end
+
+
+
 
   get "/:username", to: 'users#show', as: 'user'
 

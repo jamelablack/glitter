@@ -1,1 +1,13 @@
-<%= link_hashtag(status.body) %> created by <%= status.creator.username %>
+<%= auto_links(status.body) %> <%= link_to '*', status_path(status.parent_status) if status.retweet_id %>
+
+<% if status.retweet_id %> 
+	retweeted by 
+<% else %>
+	created by 
+<% end %>
+<%= link_to status.creator.username, user_path(status.creator.username) %>
+
+<% if logged_in? && status.creator != current_user %>
+	[<%= link_to 'retweet', retweet_status_path(status), method: 'post' %>]
+
+<% end %>

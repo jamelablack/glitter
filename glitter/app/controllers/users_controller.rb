@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by username: params[:username]
+		wrong_path unless @user
 	end
 
 	def follow
@@ -67,6 +68,5 @@ class UsersController < ApplicationController
 	def user_params
 		params.require(:user).permit!
 	end
-
 
 end

@@ -2,7 +2,7 @@ class HashtagsController < ApplicationController
 
 
 	def show
-		@status = Status.where("body LIKE ?", "%##{params[:id]}%")
+		@statuses = Status.where("body LIKE ?", "%##{params[:id]}%")
 	end
 
 end
